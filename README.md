@@ -1,3 +1,3 @@
 # metiri
 
-Easy unit conversion utility
+Simple unit conversion utility
