@@ -1,0 +1,4 @@
+/**
+ * Temperature Definitions
+ * @type {Object}
+ */

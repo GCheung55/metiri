@@ -1,0 +1,4 @@
+/**
+ * Length Definitions
+ * @type {Object}
+ */

@@ -1,0 +1,4 @@
+/**
+ * Speed Definitions
+ * @type {Object}
+ */

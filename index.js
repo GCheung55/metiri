@@ -1,0 +1,58 @@
+'use strict'
+
+var metiri = require('./metiri')
+
+metiri.mass = require('./mass')
+metiri.temperature = require('./temperature')
+metiri.length = require('./length')
+metiri.speed = require('./speed')
+
+// Load the definitions
+require('./definition/mass/gram')
+require('./definition/mass/kilogram')
+require('./definition/mass/long-ton')
+require('./definition/mass/microgram')
+require('./definition/mass/metric-ton')
+require('./definition/mass/milligram')
+require('./definition/mass/ounce')
+require('./definition/mass/pound')
+require('./definition/mass/short-ton')
+require('./definition/mass/stone')
+
+require('./definition/temperature/celsius')
+require('./definition/temperature/delisle')
+require('./definition/temperature/fahrenheit')
+require('./definition/temperature/kelvin')
+require('./definition/temperature/newton')
+require('./definition/temperature/rankine')
+require('./definition/temperature/reaumur')
+require('./definition/temperature/romer')
+
+require('./definition/length/centimeter')
+require('./definition/length/foot')
+require('./definition/length/inch')
+require('./definition/length/kilometer')
+require('./definition/length/meter')
+require('./definition/length/mile')
+require('./definition/length/millimeter')
+require('./definition/length/yard')
+
+require('./definition/speed/foot-per-minute')
+require('./definition/speed/foot-per-second')
+require('./definition/speed/kilometer-per-hour')
+require('./definition/speed/kilometer-per-second')
+require('./definition/speed/knot')
+require('./definition/speed/meter-per-minute')
+require('./definition/speed/meter-per-second')
+require('./definition/speed/mile-per-hour')
+require('./definition/speed/mile-per-second')
+require('./definition/speed/minute-per-kilometer')
+require('./definition/speed/minute-per-mile')
+require('./definition/speed/sea-mile-per-hour')
+require('./definition/speed/second-per-100-meters')
+require('./definition/speed/second-per-100-yards')
+require('./definition/speed/second-per-mile')
+require('./definition/speed/speed-of-light-in-vacuum')
+require('./definition/speed/speed-of-sound-in-gas')
+
+module.exports = metiri
