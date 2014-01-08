@@ -3,6 +3,6 @@
  * @type {Object}
  */
 
-// var definition = require('../definition')
+var definition = require('../definition')
 
-// module.exports = new definition
+module.exports = new definition

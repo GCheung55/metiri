@@ -2,9 +2,6 @@
 
 var length = require('./centimeter')
 
-length['barleycorn'] = {
-	base: 'centimeter',
-	factor: 1 / 1.1811024
-}
+length.set('barleycorn', 'centimeter', 1 / 1.1811024)
 
 module.exports = length

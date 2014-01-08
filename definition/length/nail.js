@@ -2,9 +2,6 @@
 
 var length = require('./centimeter')
 
-length['nail'] = {
-	base: 'centimeter',
-	factor: 1 / 0.17497813
-}
+length.set('nail', 'centimeter', 1 / 0.17497813)
 
 module.exports = length

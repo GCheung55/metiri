@@ -2,9 +2,6 @@
 
 var speed = require('./meter-per-second')
 
-speed['kilometer-per-second'] = {
-	base: 'meter-per-second',
-	factor: 1000
-}
+speed.set('kilometer-per-second', 'meter-per-second', 1000)
 
 module.exports = speed

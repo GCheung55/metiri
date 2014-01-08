@@ -2,9 +2,6 @@
 
 var speed = require('./meter-per-second')
 
-speed['knot'] = {
-	base: 'meter-per-second',
-	factor: 1 / 1.9438445
-}
+speed.set('knot', 'meter-per-second', 1 / 1.9438445)
 
 module.exports = speed

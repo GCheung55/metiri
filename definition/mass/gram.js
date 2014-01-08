@@ -2,8 +2,6 @@
 
 var mass = require('../mass')
 
-mass['gram'] = {
-	base: null
-}
+mass.set('gram')
 
 module.exports = mass

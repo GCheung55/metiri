@@ -2,9 +2,6 @@
 
 var length = require('./centimeter')
 
-length['finger'] = {
-	base: 'centimeter',
-	factor: 1 / 0.44994376
-}
+length.set('finger', 'centimeter', 1 / 0.44994376)
 
 module.exports = length

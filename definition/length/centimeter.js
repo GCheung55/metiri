@@ -2,8 +2,6 @@
 
 var length = require('../length')
 
-length['centimeter'] = {
-	base: null
-}
+length.set('centimeter')
 
 module.exports = length

@@ -2,11 +2,10 @@
 
 var temp = require('../temperature')
 
-temp['kelvin'] = {
-	base: null,
-	validator: function(value) {
-		return value < 0 ? new Error('Kelvin value can not be less than 0') : true
-	}
-}
+var undef
 
-module.exports  = temp
+temp.set('kelvin', undef, undef, undef, function(value) {
+	return value < 0 ? new Error('Kelvin value can not be less than 0') : true
+})
+
+module.exports = temp

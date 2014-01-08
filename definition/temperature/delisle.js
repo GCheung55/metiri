@@ -2,10 +2,6 @@
 
 var temp = require('./kelvin')
 
-temp['delisle'] = {
-	base: 'kelvin',
-	factor: 1 / -1.5,
-	zero: +559.725
-}
+temp.set('delisle', 'kelvin', 1 / -1.5, +559.725)
 
 module.exports = temp

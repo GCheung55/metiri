@@ -2,9 +2,6 @@
 
 var mass = require('./gram')
 
-mass['kilogram'] = {
-	base: 'gram',
-	factor: 1E3
-}
+mass.set('kilogram', 'gram', 1E3)
 
 module.exports = mass

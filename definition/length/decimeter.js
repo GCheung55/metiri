@@ -2,9 +2,6 @@
 
 var length = require('./centimeter')
 
-length['decimeter'] = {
-	base: 'centimeter',
-	factor: 10
-}
+length.set('decimeter', 'centimeter', 10)
 
 module.exports = length
