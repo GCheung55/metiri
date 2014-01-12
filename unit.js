@@ -14,6 +14,65 @@ var unit = prime({
         return this._value
     },
 
+    round: function(significantDigits) {
+        // default significant digits
+        significantDigits = significantDigits != undefined ? significantDigits : 4
+
+        var scope = this
+        var value = scope._value
+        var from = scope._from
+        var factor = from.factor
+        var def = scope.definition[from]
+        var sign = ''
+
+        if (!isFinite(value) || value == 0) {
+            return value.toString()
+        }
+
+        if (value < 0) {
+            sign = '-'
+            value = -value
+        }
+
+        if (factor && 1E-10 > value) {
+            return '0'
+        }
+
+        var c = Math.floor(Math.log(value) / Math.LN10) - significantDigits + 1
+
+        if (!isFinite(c)) {
+            return sign + value
+        }
+
+        value = String( Math.round(value / Math.pow(10, c)))
+
+        if (15 < c + value.length - 1) {
+            value += 'e+' + (c + value.length - 1)
+            value = value.replace(/^([0-9])/, '$1.')
+        } else if (-15 > c + value.length - 1) {
+            value += 'e' + (c + value.length - 1)
+            value = value.replace(/^([0-9])/, '$1.')
+        } else if (c >= 0) {
+            for (c; 0 < c; c--) {
+                value += '0'
+            }
+        } else if (c = value.length - -c, c > 0) {
+            value = value.substr(0, c) + '.' + value.substring(c)
+        } else {
+            for (c; c < 0; c++) {
+                value = '0' + value
+            }
+
+            value = '0.' + value
+        }
+
+        value = value.replace(/([1-9])0+e/, "$1e")
+        value = value.replace(/(\.[0-9]*[1-9])0+$/, "$1")
+        value = value.replace(/\.0+$/, "")
+
+        return Number(sign + value)
+    },
+
     // valueOf: function() {
     //     return this._value
     // },
@@ -26,7 +85,10 @@ var unit = prime({
 
     check: function() {
         var scope = this
-        return scope._value != undefined && scope._from != undefined && scope._to != undefined
+        var from = scope._from
+        var to = scope._to
+
+        return scope._value != undefined && from != undefined && to != undefined && from != to
     },
 
     convert: function(value) {
@@ -58,12 +120,18 @@ var unit = prime({
 
     _compute: function() {
         var scope = this
+        var value
 
         if (scope.check()) {
-            scope._value = scope.compute(scope._value, scope._from, scope._to)
+            value = scope.compute(scope._value, scope._from, scope._to)
+            
+            if (value != scope._value) {
+                scope._value = value
+            }
+            // return scope.compute(scope._value, scope._from, scope._to)
         }
         
-        return scope
+        // return scope
     },
 
     compute: function(value, fromType, toType) {
@@ -72,11 +140,6 @@ var unit = prime({
         var inputDef = defs[fromType]
         var outputDef = defs[toType]
         var baseType, baseValue, factor, inputZero, outputZero
-
-        // The same types do not need conversions
-        if (fromType == toType) {
-            return value
-        }
 
         if (toType === inputDef.base || fromType === outputDef.base) {
             if ((inputZero = inputDef.zero) != undefined) {
