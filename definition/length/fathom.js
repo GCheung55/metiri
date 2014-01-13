@@ -1,7 +1,0 @@
-'use strict'
-
-var length = require('./centimeter')
-
-length.set('fathom', 'centimeter', 1 / 0.0054680665)
-
-module.exports = length
