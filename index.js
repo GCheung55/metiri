@@ -2,11 +2,6 @@
 
 var metiri = require('./metiri')
 
-metiri.mass = require('./mass')
-metiri.temperature = require('./temperature')
-metiri.distance = require('./distance')
-metiri.speed = require('./speed')
-
 // Load the definitions
 require('./definition/mass/gram')
 require('./definition/mass/kilogram')
