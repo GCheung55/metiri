@@ -1,6 +1,6 @@
 'use strict'
 
-var mass = require('../mass')
+var mass = require('../_mass')
 
 mass.set('gram')
 

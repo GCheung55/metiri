@@ -1,6 +1,6 @@
 'use strict'
 
-var distance = require('../distance')
+var distance = require('../_distance')
 
 distance.set('centimeter')
 

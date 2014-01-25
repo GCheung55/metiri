@@ -1,6 +1,6 @@
 'use strict'
 
-var temp = require('../temperature')
+var temp = require('../_temperature')
 
 var undef
 

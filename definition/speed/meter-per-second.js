@@ -1,6 +1,6 @@
 'use strict'
 
-var speed = require('../speed')
+var speed = require('../_speed')
 
 speed.set('meter-per-second')
 
