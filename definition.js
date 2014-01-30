@@ -3,21 +3,25 @@
 var prime = require('prime')
 
 module.exports = prime({
-	set: function(name, base, factor, zero, validation, symbol) {
-		var scope = this
+    constructor: function(){
+        this._defs = {}
+    },
 
-		scope[name] = {
-			base: base,
-			factor: factor,
-			zero: zero,
-			validation: validation,
-			symbol: symbol
-		}
+    set: function(name, base, factor, zero, validation, symbol) {
+        var scope = this
 
-		return scope
-	},
+        scope._defs[name] = typeof base == 'object' ? base : {
+            base: base,
+            factor: factor,
+            zero: zero,
+            validation: validation,
+            symbol: symbol
+        }
 
-	get: function(name) {
-		return this[name]
-	}
+        return scope
+    },
+
+    get: function(name) {
+        return this._defs[name]
+    }
 })
