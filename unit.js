@@ -5,22 +5,24 @@ var prime = require('prime')
 var enforcePrecision = require('mout/number/enforcePrecision')
 
 var unit = prime({
-    constructor: function(definition) {
+    constructor: function(definitions) {
         var scope = this
-        scope.definition = definition || {}
-        scope._value = scope._from = scope._to = undefined
+        scope.definitions = definitions || {}
+        scope._origVal = scope._from = scope._to = undefined
         return scope
     },
 
     value: function() {
-        return this._value
+        var scope = this
+
+        return scope._compute()
     },
 
     round: function(significantDigits) {
+        var value = this._compute()
+
         // default significant digits
         significantDigits = significantDigits != undefined ? significantDigits : 4
-
-        var value = this._value
 
         if (!isFinite(value) || value == 0) {
             return value
@@ -44,54 +46,83 @@ var unit = prime({
         var from = scope._from
         var to = scope._to
 
-        return scope._value != undefined && from != undefined && to != undefined && from != to
+        return scope._origVal != undefined && from != undefined && to != undefined
+    },
+
+    create: function(value, from, to){
+        var u = new unit(this.definitions)
+
+        u._origVal = value
+        u._from = from
+        u._to = to
+
+        return u
     },
 
     convert: function(value) {
         var scope = this
-        scope._value = value
+        var len = arguments.length
 
-        scope._compute()
+        if (len) {
+            scope._origVal = value
+        } else {
+            scope = scope.origVal
+        }
 
         return scope
     },
 
     from: function(from) {
         var scope = this
-        scope._from = from
+        var len = arguments.length
 
-        scope._compute()
+        if (len) {
+            scope._from = from
+        } else {
+            scope = scope._from
+        }
 
         return scope
     },
 
     to: function(to) {
         var scope = this
-        scope._to = to
+        var len = arguments.length
 
-        scope._compute()
+        if (len) {
+            scope._to = to
+        } else {
+            scope = scope._to
+        }
 
         return scope
     },
 
     _compute: function() {
         var scope = this
+        var from = scope._from
+        var to = scope._to
+        var origVal = scope._origVal
         var value
 
         if (scope.check()) {
-            value = scope.compute(scope._value, scope._from, scope._to)
-            
-            if (value != scope._value) {
-                scope._value = value
+            if (from == to) {
+                value = origVal
+            } else {
+                value = scope.compute(origVal, from, to)
             }
+        } else {
+            throw new Error('Missing properties. Cannot compute.')
         }
+
+        return value
     },
 
     compute: function(value, fromType, toType) {
         var scope = this
-        var defs = scope.definition
-        var inputDef = defs[fromType]
-        var outputDef = defs[toType]
+        var defs = scope.definitions
+        var inputDef = defs.get(fromType)
+        var outputDef = defs.get(toType)
         var baseType, baseValue, factor, inputZero, outputZero
 
         if (toType === inputDef.base || fromType === outputDef.base) {

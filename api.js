@@ -1,59 +1,72 @@
 'use strict'
-/**
- * Basic API factory for combining unit and definition
- * @param  {Object} unit       [description]
- * @param  {Object} definition [description]
- * @return {Function}            [description]
- */
-var api = function(unit, definition) {
 
-	// Create return obj containing the api
-	var ret = {
-		// Set for testing
-		_unit: unit,
+var prime = require('prime')
+var forOwn = require('mout/object/forOwn')
+var undef
 
-		// Set for testing
-		_definition: definition,
+var implement = function(name) {
+    return function(value) {
+        var scope = this
+        var from = name
+        var to = name
 
-		_nCtor: function() {
-			return new unit(definition)
-		},
+        // If value is undefined, then we're converting to the next
+        if (value == undef && scope.check()) {
+            from = scope.to()
+            value = scope.value()
+        }
 
-		/**
-		 * Set the `value` to convert on a new unit instance
-		 * @param  {[type]} value [description]
-		 * @return {Object}       [description]
-		 */
-		convert: function(value) {
-			return ret._nCtor().convert(value)
-		},
+        scope.convert(value)
+        scope.from(from)
+        scope.to(to)
 
-		/**
-		 * Set the `from` type to convert from on a new unit instance
-		 * @param  {String} from [description]
-		 * @return {Object}      [description]
-		 */
-		from: function(from) {
-			return ret._nCtor().from(from)
-		},
+        return scope
+    }
+}
 
-		/**
-		 * Set the `to` type to convert to on a new unit instance
-		 * @param  {String} to [description]
-		 * @return {Object}    [description]
-		 */
-		to: function(to) {
-			return ret._nCtor().to(to)
-		}
-	}
+var generic = function(u, name) {
+    return function(value) {
+        var uu = u()
 
-	return function(v) {
-		if (v) {
-			return ret.convert(v)
-		}
+        if (value != undef) {
+            uu.convert(value)
+        }
 
-		return ret
-	}
+        uu.from(name)
+        uu.to(name)
+
+        return uu
+    }
+}
+
+var augment = function(name) {
+    var scope = this
+    var obj = {}
+
+    obj[name] = implement(name)
+
+    scope.implement(obj)
+    scope[name] = generic(scope, name)
+
+    return scope
+}
+
+var api = function(unit, definitions) {
+    var u = prime({
+        inherits: unit,
+        constructor: function(){
+            if ( !(this instanceof u) ) {
+                return new u
+            }
+
+            // setting the definitions here so we don't need to pass it around
+            u.parent.constructor.call(this, definitions)
+        }
+    })
+
+    u.augment = augment
+
+    return u
 }
 
 module.exports = api

@@ -5,6 +5,6 @@ var api = require('./api')
 
 // Simple solution instead of using mout/function/partial
 // May revisit
-module.exports = function(definition) {
-	return api(unit, definition)
+module.exports = function(definitions) {
+	return api(unit, definitions)
 }

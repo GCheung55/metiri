@@ -37,9 +37,8 @@ testCase('unit', {
 
                 assert.isFalse(obj.check())
 
-                obj._value = value
+                obj._origVal = value
                 obj._to = to
-                obj._from = to
 
                 assert.isFalse(obj.check())
 
@@ -50,7 +49,7 @@ testCase('unit', {
         },
 
         'to': {
-            'consumes a key referencing a definition': function() {
+            'sets a key referencing a definitions': function() {
                 var def = 'gram'
                 var obj = this.obj
 
@@ -63,7 +62,7 @@ testCase('unit', {
         },
 
         'from': {
-            'consumes a key referencing a definition': function() {
+            'returns a new object and sets a key referencing a definitions': function() {
                 var def = 'gram'
                 var obj = this.obj
 
@@ -75,38 +74,53 @@ testCase('unit', {
             }
         },
 
-        'convert': {
-            'executes compute method when ready': function() {
-                var obj = this.obj
+        'value': {
+            'executes _compute method when ready': function() {
                 var value = 123
                 var from = 'kilogram'
                 var to = 'gram'
-                var stub = this.stub(obj, 'compute')
+                var obj = this.obj.to(to).from(from).convert(value)
+                var stub = this.stub(obj, '_compute').returns(value)
 
-                obj.to(to).from(from).convert(value)
+                obj.value()
 
                 assert.calledOnce(stub, value)
-            }
-        },
+            },
 
-        'value': {
-            'returns the stored _value': function() {
+            'returns the computed value': function() {
                 var obj = this.obj
                 var value = 123
+                var checkStub = this.stub(obj, 'check').returns(true)
+                var computeStub = this.stub(obj, 'compute').returns(value)
 
-                obj._value = value
+                obj._to = 'a'
+                obj._from = 'b'
+                obj._origVal = value
 
                 assert.equals(obj.value(), value)
             }
         },
 
         'round': {
-            'returns the rounded number from the stored _value': function() {
+            'executes _compute method': function() {
+                var value = 123
+                var from = 'kilogram'
+                var to = 'gram'
+                var obj = this.obj.to(to).from(from).convert(value)
+                var stub = this.stub(obj, '_compute')
+
+                obj.round()
+
+                assert.calledOnce(stub, value)
+            },
+
+            'returns the rounded number from the computed value': function() {
                 var obj = this.obj
                 var value = 0.99999
                 var significantDigits = 5
+                var stub = this.stub(obj, '_compute').returns(0.99999)
 
-                obj._value = value
+                obj._origVal = value
 
                 assert.equals(obj.round(), 1)
                 assert.equals(obj.round(significantDigits), 0.99999)

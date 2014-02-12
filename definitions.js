@@ -10,7 +10,7 @@ module.exports = prime({
     set: function(name, base, factor, zero, validation, symbol) {
         var scope = this
 
-        scope._defs[name] = typeof base == 'object' ? base : {
+        var def = scope._defs[name] = typeof base == 'object' ? base : {
             base: base,
             factor: factor,
             zero: zero,

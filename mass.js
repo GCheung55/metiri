@@ -1,6 +1,6 @@
 'use strict'
 
-var definition = require('./definition/_mass')
+var definitions = require('./definition/_mass')
 var _api = require('./_api')
 
-module.exports = _api(definition)
+module.exports = _api(definitions)
