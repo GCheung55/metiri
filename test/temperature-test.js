@@ -3,7 +3,7 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var temperature = require('../temperature')
+var temperature = require('../api/temperature')
 var temperatureDefinition = require('../definition/_temperature')
 
 // Load all definitions

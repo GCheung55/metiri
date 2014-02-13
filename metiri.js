@@ -4,9 +4,9 @@ var metiri = function(type){
 	return metiri[type]
 }
 
-metiri.mass = require('./mass')
-metiri.temperature = require('./temperature')
-metiri.distance = require('./distance')
-metiri.speed = require('./speed')
+metiri.mass = require('./api/mass')
+metiri.temperature = require('./api/temperature')
+metiri.distance = require('./api/distance')
+metiri.speed = require('./api/speed')
 
 module.exports = metiri

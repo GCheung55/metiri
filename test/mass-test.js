@@ -3,7 +3,7 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var mass = require('../mass')
+var mass = require('../api/mass')
 var massDefinition = require('../definition/_mass')
 
 // load all definitions

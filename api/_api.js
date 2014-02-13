@@ -1,7 +1,7 @@
 'use strict'
 
-var unit = require('./unit')
-var api = require('./api')
+var unit = require('../unit')
+var api = require('../api')
 
 // Simple solution instead of using mout/function/partial
 // May revisit

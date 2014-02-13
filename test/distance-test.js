@@ -3,7 +3,7 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var distance = require('../distance')
+var distance = require('../api/distance')
 var distanceDefinition = require('../definition/_distance')
 
 // load all definitions
