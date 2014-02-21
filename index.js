@@ -1,14 +1,13 @@
 'use strict'
 
-var metiri = require('./metiri')
+exports.mass = require('./mass')
 
-// Load the definitions
-require('./definition/mass')
+exports.temperature = require('./temperature')
 
-require('./definition/temperature')
+exports.distance = require('./distance')
 
-require('./definition/distance')
+exports.speed = require('./speed')
 
-require('./definition/speed')
+exports.area = require('./area')
 
-module.exports = metiri
+exports.pressure = require('./pressure')

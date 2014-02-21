@@ -7,15 +7,14 @@ module.exports = prime({
         this._defs = {}
     },
 
-    set: function(name, base, factor, zero, validation, symbol) {
+    set: function(name, base, factor, zero, validation) {
         var scope = this
 
         var def = scope._defs[name] = typeof base == 'object' ? base : {
             base: base,
             factor: factor,
             zero: zero,
-            validation: validation,
-            symbol: symbol
+            validation: validation
         }
 
         return scope

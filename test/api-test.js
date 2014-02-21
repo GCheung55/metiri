@@ -34,16 +34,35 @@ testCase('api', {
             }
         },
 
-        'adds definition-named generic and prototype methods': function() {
+        'adds generic conversion methods': function() {
             var mU = this.mU
 
             mU.augment('gram')
             mU.augment('kilogram')
+            mU.augment('gram', 'awesome.gram')
+            mU.augment('kilogram', 'awesome.kilogram')
 
             assert.isFunction(mU.gram)
             assert.isFunction(mU.kilogram)
-            assert.isFunction(mU.prototype.gram)
-            assert.isFunction(mU.prototype.kilogram)
+            assert.isFunction(mU.awesome.gram)
+            assert.isFunction(mU.awesome.kilogram)
+        },
+
+        'adds conversion methods when instantiated': function() {
+            var mU = this.mU
+            var newMu
+
+            mU.augment('gram')
+            mU.augment('kilogram')
+            mU.augment('gram', 'awesome.gram')
+            mU.augment('kilogram', 'awesome.kilogram')
+
+            newMu = mU()
+
+            assert.isFunction(newMu.gram)
+            assert.isFunction(newMu.kilogram)
+            assert.isFunction(newMu.awesome.gram)
+            assert.isFunction(newMu.awesome.kilogram)
         }
     },
 
@@ -110,10 +129,11 @@ testCase('api', {
             var value = 1000
             var gram = 'gram'
             var kilogram = 'kilogram'
-            var obj = new mU
+            var obj
 
             mU.augment(gram)
             mU.augment(kilogram)
+            obj = new mU
 
             obj.gram()
             assert.equals(obj._from, gram)
@@ -131,10 +151,11 @@ testCase('api', {
             var value = 1000
             var gram = 'gram'
             var kilogram = 'kilogram'
-            var obj = new mU
+            var obj
 
             mU.augment(gram)
             mU.augment(kilogram)
+            obj = new mU
 
             obj.gram(value).kilogram()
             assert.equals(obj._origVal, 1000)
@@ -147,10 +168,11 @@ testCase('api', {
             var mU = this.mU
             var gram = 'gram'
             var kilogram = 'kilogram'
-            var obj = new mU
+            var obj
 
             mU.augment(gram)
             mU.augment(kilogram)
+            obj = new mU
 
             obj.gram(1000)
             assert.equals(obj._origVal, 1000)

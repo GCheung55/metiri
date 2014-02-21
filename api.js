@@ -1,7 +1,11 @@
 'use strict'
 
 var prime = require('prime')
-var forOwn = require('mout/object/forOwn')
+var map = require('mout/object/map')
+var merge = require('mout/object/merge')
+var set = require('mout/object/set')
+var get = require('mout/object/get')
+var bind = require('mout/function/bind')
 var undef
 
 var implement = function(name) {
@@ -39,32 +43,50 @@ var generic = function(u, name) {
     }
 }
 
-var augment = function(name) {
-    var scope = this
-    var obj = {}
-
-    obj[name] = implement(name)
-
-    scope.implement(obj)
-    scope[name] = generic(scope, name)
-
-    return scope
+var recurse = function(obj, scope){
+    return map(obj, function(value, key){
+        if (typeof value == 'object') {
+            return recurse(value, scope)
+        } else {
+            return bind(value, scope)
+        }
+    })
 }
 
 var api = function(unit, definitions) {
+    var methods = {}
     var u = prime({
         inherits: unit,
         constructor: function(){
-            if ( !(this instanceof u) ) {
+            var scope = this
+
+            if ( !(scope instanceof u) ) {
                 return new u
             }
 
             // setting the definitions here so we don't need to pass it around
-            u.parent.constructor.call(this, definitions)
+            u.parent.constructor.call(scope, definitions)
+
+            // copy methods here because we want dot notation accessible methods
+            merge(scope, recurse(methods, scope))
         }
     })
 
-    u.augment = augment
+    // Expose the methods for testing
+    u._methods = methods
+
+    u.augment = function(name, path) {
+        var scope = this
+
+        if (path == undef) {
+            path = name
+        }
+
+        set(methods, path, implement(name))
+        set(scope, path, generic(scope, name))
+
+        return scope
+    }
 
     return u
 }
