@@ -1,6 +1,6 @@
 {
   "name": "metiri",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Simple unit conversion utility.",
   "main": "index.js",
   "scripts": {
