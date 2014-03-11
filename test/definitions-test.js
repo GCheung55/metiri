@@ -34,15 +34,14 @@ testCase('definitions', {
                     base: base,
                     factor: factor,
                     zero: zero,
-                    validation: validation,
-                    symbol: symbol
+                    validation: validation
                 }
                 var actual
 
                 refute.defined(defObj._defs[name])
 
                 // set with args
-                defObj.set(name, base, factor, zero, validation, symbol)
+                defObj.set(name, base, factor, zero, validation)
                 actual = defObj._defs[name]
                 assert.defined(actual)
                 assert.equals(actual, expected)

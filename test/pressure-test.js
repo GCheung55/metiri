@@ -8,7 +8,7 @@ var pressureDefinition = require('../definition/_pressure')
 
 // load all definitions
 require('../definition/pressure')
-console.log(pressureDefinition)
+
 var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
@@ -21,7 +21,7 @@ var testCase = buster.testCase
     })
 })()
 
-testCase('=> pressure', {
+testCase('pressure', {
 
     'is a function': function() {
         assert.isFunction(pressure)
