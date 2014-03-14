@@ -1,6 +1,6 @@
 'use strict'
 
-var api = require('./pascal')
+var api = require('../api/pressure')
 
 var unit = 'hectopascal'
 
