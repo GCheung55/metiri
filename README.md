@@ -20,6 +20,14 @@ Supported conversions:
 * Be unit tested
 * Work in multiple environments (IE6+, modern browsers, node.js)
 
+## To Use ##
+__node.js__
+```javascript
+var metiri = require('metiri')
+
+metiri.mass.gram(1000).kilogram().value() // 1
+```
+
 ## Todo ##
 * Support general volume conversion
 * Switch mass base unit (gram) to SI unit (kilogram)
@@ -33,6 +41,10 @@ Supported conversions:
 * Support other pressure units: 
     * atmosphere, mercury, natural, water
 
-## License ##
+## Credits/Influences ##
+* [convert-me.com](http://www.convert-me.com/)
+* [MeasurementJs](https://github.com/Philzen/measurement.js)
+* [Michael Kedzierski](https://github.com/ycros) - API suggestions
 
+## License ##
 Released under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
