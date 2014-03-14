@@ -26,6 +26,7 @@ __node.js__
 var metiri = require('metiri')
 
 metiri.mass.gram(1000).kilogram().value() // 1
+metiri.mass.gram(1000).kilogram().gram().value() // 1000
 ```
 
 ## Todo ##
