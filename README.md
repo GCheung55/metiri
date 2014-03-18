@@ -11,6 +11,7 @@ Supported conversions:
 * speed
 * temperature
 * time
+* volume
 
 ## Main Goals ##
 * Have a simple API
@@ -30,7 +31,6 @@ metiri.mass.gram(1000).kilogram().gram().value() // 1000
 ```
 
 ## Todo ##
-* Support general volume conversion
 * Switch mass base unit (gram) to SI unit (kilogram)
 * Documentation
 * Support other area units:
