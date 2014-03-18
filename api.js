@@ -80,6 +80,8 @@ var api = function(unit, definitions) {
 
         if (path == undef) {
             path = name
+        } else {
+            path = path.replace(/-/g, '.')
         }
 
         set(methods, path, implement(name))

@@ -13,3 +13,5 @@ exports.area = require('./area')
 exports.pressure = require('./pressure')
 
 exports.time = require('./time')
+
+exports.volume = require('./volume')
