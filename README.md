@@ -41,6 +41,8 @@ metiri.mass.gram(1000).kilogram().gram().value() // 1000
     * ancient-greek, ancient-roman, apothecaries, bahai-faith, biblical, chinese, hong-kong, japanese, old-french, old-german, old-russian, thai, troy 
 * Support other pressure units: 
     * atmosphere, mercury, natural, water
+* Support other volume units:
+    * japanese, chinese, thai, old-russian (liquid/dry), old-french, ancient-roman (liquid/dry), biblical (liquid/dry)
 
 ## Credits/Influences ##
 * [convert-me.com](http://www.convert-me.com/)
