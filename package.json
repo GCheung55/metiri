@@ -21,5 +21,15 @@
   "dependencies": {
     "prime": ">=0.3.1",
     "mout": ">=0.7.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GCheung55/metiri.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GCheung55/metiri/issues"
   }
 }
