@@ -16,7 +16,7 @@
   "author": "Garrick Cheung",
   "license": "MIT",
   "devDependencies": {
-    "buster": "~0.7.8"
+    "buster": "0.7.8"
   },
   "dependencies": {
     "prime": ">=0.3.1",
