@@ -3,23 +3,12 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var pressure = require('../api/pressure')
+var pressure = require('../pressure')
 var pressureDefinition = require('../definition/_pressure')
-
-// load all definitions
-require('../definition/pressure')
 
 var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
-
-// augment pressure unit constructor
-;
-(function() {
-    forOwn(pressureDefinition._defs, function(def, name) {
-        pressure.augment(name)
-    })
-})()
 
 testCase('pressure', {
 
