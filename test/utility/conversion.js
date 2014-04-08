@@ -6,17 +6,21 @@ var floatPointEpsilonEquals = require('./floatPointEpsilonEquals')
 
 var assert = buster.assert
 
+var replace = function(name){
+    return name.replace(/\-/g, '.')
+}
+
 module.exports = function(definitions, start) {
     return function() {
         var converter = this.converter
         var expected = 1
-        var getstr = start.replace('-', '.')
+        var getstr = replace(start)
         var u = get(converter, getstr).call(converter, expected)
         var actual
-console.log(converter.square.meter)
+
         forOwn(definitions._defs, function(def, name){
-console.log(name)
-            get(u, name.replace('-', '.')).call(u)
+            var n = replace(name)
+            get(u, n).call(u)
         })
 
         actual = get(u, getstr).call(u, expected).value()

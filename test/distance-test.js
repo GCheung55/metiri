@@ -3,26 +3,14 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var distance = require('../api/distance')
+var distance = require('../distance')
 var distanceDefinition = require('../definition/_distance')
-
-// load all definitions
-require('../definition/distance')
 
 var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
 
-// augment distance unit constructor
-;
-(function() {
-    forOwn(distanceDefinition._defs, function(def, name) {
-        distance.augment(name)
-    })
-})()
-
 testCase('distance', {
-
     'is a function': function() {
         assert.isFunction(distance)
     },
@@ -105,6 +93,8 @@ testCase('distance', {
 
         'survey-foot': conversion(distanceDefinition, 'survey-foot'),
 
-        'yard': conversion(distanceDefinition, 'yard')
+        'yard': conversion(distanceDefinition, 'yard'),
+
+        'nautical-sea-mile': conversion(distanceDefinition, 'nautical-sea-mile'),
     }
 })

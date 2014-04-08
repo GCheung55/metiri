@@ -10,7 +10,7 @@ var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
 
-testCase('=> area', {
+testCase('area', {
     'is a function': function() {
         assert.isFunction(area)
     },
