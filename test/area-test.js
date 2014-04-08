@@ -3,26 +3,14 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var area = require('../api/area')
+var area = require('../area')
 var areaDefinition = require('../definition/_area')
-
-// load all definitions
-require('../definition/area')
 
 var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
 
-// augment area unit constructor
-;
-(function() {
-    forOwn(areaDefinition._defs, function(def, name) {
-        area.augment(name)
-    })
-})()
-
-testCase('area', {
-
+testCase('=> area', {
     'is a function': function() {
         assert.isFunction(area)
     },
@@ -79,7 +67,7 @@ testCase('area', {
 
         'square-yard': conversion(areaDefinition, 'square-yard'),
 
-        'square': conversion(areaDefinition, 'square'),
+        'square-imperial': conversion(areaDefinition, 'square-imperial'),
 
         'township': conversion(areaDefinition, 'township')
     }
