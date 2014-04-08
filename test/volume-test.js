@@ -3,26 +3,14 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var volume = require('../api/volume')
+var volume = require('../volume')
 var volumeDefinition = require('../definition/_volume')
-
-// load all definitions
-require('../definition/volume')
 
 var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
 
-// augment volume unit constructor
-;
-(function() {
-    forOwn(volumeDefinition._defs, function(def, name) {
-        volume.augment(name)
-    })
-})()
-
 testCase('volume', {
-
     'is a function': function() {
         assert.isFunction(volume)
     },
