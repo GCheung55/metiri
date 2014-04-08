@@ -2,11 +2,10 @@
 
 var api = require('../api/mass')
 
-var unit = 'short-ton'
+var unit = 'ton-short'
 
-require('../definition/mass/short-ton')
+require('../definition/mass/ton-short')
 
-api.augment(unit)
 api.augment(unit, 'ton.short')
 
 module.exports = api[unit]

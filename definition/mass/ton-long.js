@@ -2,6 +2,6 @@
 
 var mass = require('./gram')
 
-mass.set('short-ton', 'gram', 1 / 1.1023113E-6)
+mass.set('ton-long', 'gram', 1 / 9.8420653E-7)
 
 module.exports = mass

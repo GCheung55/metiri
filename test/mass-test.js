@@ -3,27 +3,14 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var mass = require('../api/mass')
+var mass = require('../mass')
 var massDefinition = require('../definition/_mass')
-
-// load all definitions
-require('../definition/mass')
 
 var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
 
-// augment distance unit constructor
-;
-(function() {
-    forOwn(massDefinition._defs, function(def, name) {
-        mass.augment(name)
-    })
-})()
-
 testCase('mass', {
-    setUp: function() {},
-
     'is a function': function() {
         assert.isFunction(mass)
     },
@@ -48,11 +35,11 @@ testCase('mass', {
 
         'kilogram': conversion(massDefinition, 'kilogram'),
 
-        'long-ton': conversion(massDefinition, 'long-ton'),
+        'ton-long': conversion(massDefinition, 'ton-long'),
 
         'microgram': conversion(massDefinition, 'microgram'),
 
-        'metric-ton': conversion(massDefinition, 'metric-ton'),
+        'ton-metric': conversion(massDefinition, 'ton-metric'),
 
         'milligram': conversion(massDefinition, 'milligram'),
 
@@ -60,7 +47,7 @@ testCase('mass', {
 
         'pound': conversion(massDefinition, 'pound'),
 
-        'short-ton': conversion(massDefinition, 'short-ton'),
+        'ton-short': conversion(massDefinition, 'ton-short'),
 
         'stone': conversion(massDefinition, 'stone')
     }
