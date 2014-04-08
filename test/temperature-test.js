@@ -3,23 +3,12 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var temperature = require('../api/temperature')
+var temperature = require('../temperature')
 var temperatureDefinition = require('../definition/_temperature')
-
-// Load all definitions
-require('../definition/temperature')
 
 var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
-
-// augment distance unit constructor
-;
-(function() {
-    forOwn(temperatureDefinition._defs, function(def, name) {
-        temperature.augment(name)
-    })
-})()
 
 testCase('temperature', {
     setUp: function() {},
