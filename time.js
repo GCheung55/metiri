@@ -1,6 +1,6 @@
 'use strict'
 
-var api = require('./api/temperature')
+var api = require('./api/time')
 
 require('./time/anomalistic-month')
 require('./time/anomalistic-year')

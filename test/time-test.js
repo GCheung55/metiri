@@ -3,26 +3,14 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var time = require('../api/time')
+var time = require('../time')
 var timeDefinition = require('../definition/_time')
-
-// load all definitions
-require('../definition/time')
 
 var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
 
-// augment time unit constructor
-;
-(function() {
-    forOwn(timeDefinition._defs, function(def, name) {
-        time.augment(name)
-    })
-})()
-
 testCase('time', {
-
     'is a function': function() {
         assert.isFunction(time)
     },
