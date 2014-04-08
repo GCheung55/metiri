@@ -3,26 +3,14 @@ var buster = require('buster')
 var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
-var speed = require('../api/speed')
+var speed = require('../speed')
 var speedDefinition = require('../definition/_speed')
-
-// load all definitions
-require('../definition/speed')
 
 var assert = buster.assert
 var refute = buster.refute
 var testCase = buster.testCase
 
-// augment speed unit constructor
-;
-(function() {
-    forOwn(speedDefinition._defs, function(def, name) {
-        speed.augment(name)
-    })
-})()
-
 testCase('speed', {
-
     'is a function': function() {
         assert.isFunction(speed)
     },
