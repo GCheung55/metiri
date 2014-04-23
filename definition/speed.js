@@ -1,5 +1,7 @@
 'use strict'
 
+var speed = require('./_speed')
+
 require('./speed/foot-per-minute')
 require('./speed/foot-per-second')
 require('./speed/kilometer-per-hour')
@@ -18,3 +20,5 @@ require('./speed/second-per-kilometer')
 require('./speed/second-per-mile')
 require('./speed/speed-of-light-in-vacuum')
 require('./speed/speed-of-sound-in-gas')
+
+module.exports = speed

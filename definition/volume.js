@@ -1,5 +1,7 @@
 'use strict'
 
+var volume = require('./_volume')
+
 require('./volume/cubic-kilometer')
 require('./volume/cubic-meter')
 require('./volume/cubic-decimeter')
@@ -45,3 +47,5 @@ require('./volume/international-cup')
 require('./volume/international-tablespoon')
 require('./volume/international-teaspoon')
 require('./volume/planck-volume')
+
+module.exports = volume

@@ -1,5 +1,7 @@
 'use strict'
 
+var area = require('./_area')
+
 require('./area/square-kilometer')
 require('./area/hectare')
 require('./area/decare')
@@ -20,3 +22,5 @@ require('./area/square-imperial')
 require('./area/square-yard')
 require('./area/square-foot')
 require('./area/square-inch')
+
+module.exports = area

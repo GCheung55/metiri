@@ -75,6 +75,9 @@ var api = function(unit, definitions) {
     // Expose the methods for testing
     u._methods = methods
 
+    // Expose definitions for testing
+    u._definitions = definitions
+
     u.augment = function(name, path) {
         var scope = this
 

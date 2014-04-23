@@ -1,5 +1,7 @@
 'use strict'
 
+var time = require('./_time')
+
 require('./time/anomalistic-month')
 require('./time/anomalistic-year')
 require('./time/calendar-month')
@@ -18,3 +20,5 @@ require('./time/syderic-year')
 require('./time/synodic-month')
 require('./time/tropic-year')
 require('./time/week')
+
+module.exports = time

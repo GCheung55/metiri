@@ -1,5 +1,7 @@
 'use strict'
 
+var distance = require('./_distance')
+
 require('./distance/angstrom')
 require('./distance/barleycorn')
 require('./distance/centimeter')
@@ -33,3 +35,5 @@ require('./distance/span')
 require('./distance/survey-foot')
 require('./distance/yard')
 require('./distance/nautical/sea-mile')
+
+module.exports = distance
