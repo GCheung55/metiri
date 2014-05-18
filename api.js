@@ -94,9 +94,9 @@ var api = function(unit, definitions) {
 
         if (path == undef) {
             path = name
-        } else {
-            path = path.replace(/-/g, '.')
         }
+
+        path = path.replace(/-/g, '.')
 
         if (def != undef) {
             definitions.set.apply(definitions, def)

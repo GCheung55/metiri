@@ -2,10 +2,10 @@
 
 var api = require('../api/mass')
 
-var stone = 'stone'
+var unit = 'stone'
 
 var def = require('../definition/mass/stone')
 
-api.augment(stone, def)
+api.augment(unit, def)
 
-module.exports = api[stone]
+module.exports = api[unit]

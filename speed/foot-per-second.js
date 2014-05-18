@@ -7,6 +7,5 @@ var unit = 'foot-per-second'
 var def = require('../definition/speed/foot-per-second')
 
 api.augment(unit, def)
-api.augment(unit, 'foot.per.second')
 
 module.exports = api[unit]

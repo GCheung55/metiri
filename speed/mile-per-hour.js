@@ -7,6 +7,5 @@ var unit = 'mile-per-hour'
 var def = require('../definition/speed/mile-per-hour')
 
 api.augment(unit, def)
-api.augment(unit, 'mile.per.hour')
 
 module.exports = api[unit]

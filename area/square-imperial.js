@@ -6,6 +6,6 @@ var unit = 'square-imperial'
 
 var def = require('../definition/area/square-imperial')
 
-api.augment(unit, 'square.imperial', def)
+api.augment(unit, def)
 
 module.exports = api[unit]

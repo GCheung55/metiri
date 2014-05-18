@@ -6,6 +6,6 @@ var unit = 'ton-long'
 
 var def = require('../definition/mass/ton-long')
 
-api.augment(unit, 'ton.long', def)
+api.augment(unit, def)
 
 module.exports = api[unit]

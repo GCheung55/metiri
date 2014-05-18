@@ -8,6 +8,5 @@ var def = require('../definition/time/gregorian-year')
 
 api.augment(unit, def)
 api.augment(unit, 'year')
-api.augment(unit, 'gregorian.year')
 
 module.exports = api[unit]
