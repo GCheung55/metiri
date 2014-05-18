@@ -4,8 +4,8 @@ var api = require('../api/distance')
 
 var unit = 'league'
 
-require('../definition/distance/league')
+var def = require('../definition/distance/league')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]
