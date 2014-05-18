@@ -4,9 +4,9 @@ var api = require('../api/time')
 
 var unit = 'tropic-year'
 
-require('../definition/time/tropic-year')
+var def = require('../definition/time/tropic-year')
 
-api.augment(unit)
+api.augment(unit, def)
 api.augment(unit, 'tropic.year')
 
 module.exports = api[unit]

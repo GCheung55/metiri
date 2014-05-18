@@ -4,9 +4,9 @@ var api = require('../api/time')
 
 var unit = 'planck-time'
 
-require('../definition/time/planck-time')
+var def = require('../definition/time/planck-time')
 
-api.augment(unit)
+api.augment(unit, def)
 api.augment(unit, 'planck.time')
 
 module.exports = api[unit]

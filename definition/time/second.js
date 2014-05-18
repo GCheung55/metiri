@@ -1,7 +1,9 @@
 'use strict'
 
-var time = require('../_time')
+// var time = require('../_time')
 
-time.set('second')
+// time.set('second')
 
-module.exports = time
+// module.exports = time
+
+module.exports = ['second']

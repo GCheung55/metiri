@@ -4,9 +4,9 @@ var api = require('../api/time')
 
 var unit = 'gregorian-year'
 
-require('../definition/time/gregorian-year')
+var def = require('../definition/time/gregorian-year')
 
-api.augment(unit)
+api.augment(unit, def)
 api.augment(unit, 'year')
 api.augment(unit, 'gregorian.year')
 

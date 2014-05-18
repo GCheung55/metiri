@@ -1,7 +1,9 @@
 'use strict'
 
-var speed = require('./second')
+// var speed = require('./second')
 
-speed.set('planck-time', 'second', 1 / 1.8549217e+43)
+// speed.set('planck-time', 'second', 1 / 1.8549217e+43)
 
-module.exports = speed
+// module.exports = speed
+
+module.exports = ['planck-time', 'second', 1 / 1.8549217e+43]

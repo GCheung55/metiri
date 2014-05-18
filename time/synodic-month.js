@@ -4,9 +4,9 @@ var api = require('../api/time')
 
 var unit = 'synodic-month'
 
-require('../definition/time/synodic-month')
+var def = require('../definition/time/synodic-month')
 
-api.augment(unit)
+api.augment(unit, def)
 api.augment(unit, 'synodic.month')
 
 module.exports = api[unit]
