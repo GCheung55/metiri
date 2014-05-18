@@ -4,8 +4,8 @@ var api = require('../api/temperature')
 
 var reaumur = 'reaumur'
 
-require('../definition/temperature/reaumur')
+var def = require('../definition/temperature/reaumur')
 
-api.augment(reaumur)
+api.augment(reaumur, def)
 
 module.exports = api[reaumur]

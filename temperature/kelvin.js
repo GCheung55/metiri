@@ -4,8 +4,8 @@ var api = require('../api/temperature')
 
 var kelvin = 'kelvin'
 
-require('../definition/temperature/kelvin')
+var def = require('../definition/temperature/kelvin')
 
-api.augment(kelvin)
+api.augment(kelvin, def)
 
 module.exports = api[kelvin]

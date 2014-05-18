@@ -4,8 +4,8 @@ var api = require('../api/temperature')
 
 var celsius = 'celsius'
 
-require('../definition/temperature/celsius')
+var def = require('../definition/temperature/celsius')
 
-api.augment(celsius)
+api.augment(celsius, def)
 
 module.exports = api[celsius]

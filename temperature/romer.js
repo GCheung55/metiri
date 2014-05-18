@@ -4,8 +4,8 @@ var api = require('../api/temperature')
 
 var romer = 'romer'
 
-require('../definition/temperature/romer')
+var def = require('../definition/temperature/romer')
 
-api.augment(romer)
+api.augment(romer, def)
 
 module.exports = api[romer]
