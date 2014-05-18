@@ -2,9 +2,8 @@
 
 var unit = require('../unit')
 var api = require('../api')
+var definitions = require('../definitions')
 
-// Simple solution instead of using mout/function/partial
-// May revisit
-module.exports = function(definitions) {
-	return api(unit, definitions)
+module.exports = function(){
+    return api(unit, new definitions)
 }

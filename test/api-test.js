@@ -63,6 +63,14 @@ testCase('api', {
             assert.isFunction(newMu.kilogram)
             assert.isFunction(newMu.awesome.gram)
             assert.isFunction(newMu.awesome.kilogram)
+        },
+
+        'throws an error when missing argument: name': function(){
+            var mU = this.mU
+            
+            assert.exception(function(){
+                mU.augment()
+            })
         }
     },
 

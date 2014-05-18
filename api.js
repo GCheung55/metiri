@@ -82,6 +82,10 @@ var api = function(unit, definitions) {
     u.augment = function(name, path, def) {
         var scope = this
 
+        if (!name) {
+            throw new Error('Missing argument: name')
+        }
+
         // Path is the definition
         if (path != undef && (isArray(path))) {
             def = path
