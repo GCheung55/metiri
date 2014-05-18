@@ -4,8 +4,8 @@ var api = require('../api/distance')
 
 var unit = 'microinch'
 
-require('../definition/distance/microinch')
+var def = require('../definition/distance/microinch')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

@@ -4,8 +4,8 @@ var api = require('../api/distance')
 
 var unit = 'furlong'
 
-require('../definition/distance/furlong')
+var def = require('../definition/distance/furlong')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

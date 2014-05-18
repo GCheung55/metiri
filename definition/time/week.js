@@ -1,7 +1,9 @@
 'use strict'
 
-var speed = require('./second')
+// var speed = require('./second')
 
-speed.set('week', 'second', 604800)
+// speed.set('week', 'second', 604800)
 
-module.exports = speed
+// module.exports = speed
+
+module.exports = ['week', 'second', 604800]

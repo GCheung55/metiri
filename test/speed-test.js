@@ -4,7 +4,7 @@ var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
 var speed = require('../speed')
-var speedDefinition = require('../definition/_speed')
+var speedDefinition = speed._definitions
 
 var assert = buster.assert
 var refute = buster.refute

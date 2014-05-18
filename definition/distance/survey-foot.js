@@ -1,7 +1,9 @@
 'use strict'
 
-var distance = require('./centimeter')
+// var distance = require('./centimeter')
 
-distance.set('survey-foot', 'centimeter', 1 / 0.032808333)
+// distance.set('survey-foot', 'centimeter', 1 / 0.032808333)
 
-module.exports = distance
+// module.exports = distance
+
+module.exports = ['survey-foot', 'centimeter', 1 / 0.032808333]

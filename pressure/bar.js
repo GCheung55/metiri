@@ -4,8 +4,8 @@ var api = require('../api/pressure')
 
 var unit = 'bar'
 
-require('../definition/pressure/bar')
+var def = require('../definition/pressure/bar')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

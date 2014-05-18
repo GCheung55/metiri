@@ -4,8 +4,8 @@ var api = require('../api/distance')
 
 var unit = 'barleycorn'
 
-require('../definition/distance/barleycorn')
+var def = require('../definition/distance/barleycorn')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

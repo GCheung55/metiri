@@ -4,8 +4,8 @@ var api = require('../api/distance')
 
 var unit = 'kilometer'
 
-require('../definition/distance/kilometer')
+var def = require('../definition/distance/kilometer')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

@@ -1,7 +1,9 @@
 'use strict'
 
-var distance = require('./centimeter')
+// var distance = require('./centimeter')
 
-distance.set('finger', 'centimeter', 1 / 0.44994376)
+// distance.set('finger', 'centimeter', 1 / 0.44994376)
 
-module.exports = distance
+// module.exports = distance
+
+module.exports = ['finger', 'centimeter', 1 / 0.44994376]

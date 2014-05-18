@@ -4,7 +4,7 @@ var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
 var mass = require('../mass')
-var massDefinition = require('../definition/_mass')
+var massDefinition = mass._definitions
 
 var assert = buster.assert
 var refute = buster.refute
@@ -40,6 +40,8 @@ testCase('mass', {
         'microgram': conversion(massDefinition, 'microgram'),
 
         'ton-metric': conversion(massDefinition, 'ton-metric'),
+
+        'tonne': conversion(massDefinition, 'tonne'),
 
         'milligram': conversion(massDefinition, 'milligram'),
 

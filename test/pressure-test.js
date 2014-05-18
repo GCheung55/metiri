@@ -4,7 +4,7 @@ var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
 var pressure = require('../pressure')
-var pressureDefinition = require('../definition/_pressure')
+var pressureDefinition = pressure._definitions
 
 var assert = buster.assert
 var refute = buster.refute

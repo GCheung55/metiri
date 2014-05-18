@@ -4,8 +4,8 @@ var api = require('../api/mass')
 
 var unit = 'ounce'
 
-require('../definition/mass/ounce')
+var def = require('../definition/mass/ounce')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

@@ -4,8 +4,8 @@ var api = require('../api/speed')
 
 var unit = 'knot'
 
-require('../definition/speed/knot')
+var def = require('../definition/speed/knot')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

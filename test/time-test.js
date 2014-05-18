@@ -4,7 +4,7 @@ var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
 var time = require('../time')
-var timeDefinition = require('../definition/_time')
+var timeDefinition = time._definitions
 
 var assert = buster.assert
 var refute = buster.refute

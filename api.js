@@ -6,6 +6,7 @@ var merge = require('mout/object/merge')
 var set = require('mout/object/set')
 var get = require('mout/object/get')
 var bind = require('mout/function/bind')
+var isArray = require('mout/lang/isArray')
 var undef
 
 var implement = function(name) {
@@ -78,13 +79,27 @@ var api = function(unit, definitions) {
     // Expose definitions for testing
     u._definitions = definitions
 
-    u.augment = function(name, path) {
+    u.augment = function(name, path, def) {
         var scope = this
+
+        if (!name) {
+            throw new Error('Missing argument: name')
+        }
+
+        // Path is the definition
+        if (path != undef && (isArray(path))) {
+            def = path
+            path = undef
+        }
 
         if (path == undef) {
             path = name
         } else {
             path = path.replace(/-/g, '.')
+        }
+
+        if (def != undef) {
+            definitions.set.apply(definitions, def)
         }
 
         set(methods, path, implement(name))

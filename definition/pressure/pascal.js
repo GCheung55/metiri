@@ -1,7 +1,9 @@
 'use strict'
 
-var pressure = require('../_pressure')
+// var pressure = require('../_pressure')
 
-pressure.set('pascal')
+// pressure.set('pascal')
 
-module.exports = pressure
+// module.exports = pressure
+
+module.exports = ['pascal']

@@ -4,7 +4,7 @@ var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
 var temperature = require('../temperature')
-var temperatureDefinition = require('../definition/_temperature')
+var temperatureDefinition = temperature._definitions
 
 var assert = buster.assert
 var refute = buster.refute

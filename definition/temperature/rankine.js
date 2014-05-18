@@ -1,7 +1,9 @@
 'use strict'
 
-var temp = require('./kelvin')
+// var temp = require('./kelvin')
 
-temp.set('rankine', 'kelvin', 1 / 1.8)
+// temp.set('rankine', 'kelvin', 1 / 1.8)
 
-module.exports = temp
+// module.exports = temp
+
+module.exports = ['rankine', 'kelvin', 1 / 1.8]

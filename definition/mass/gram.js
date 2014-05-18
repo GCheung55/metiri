@@ -1,7 +1,9 @@
 'use strict'
 
-var mass = require('../_mass')
+// var mass = require('../_mass')
 
-mass.set('gram')
+// mass.set('gram')
 
-module.exports = mass
+// module.exports = mass
+
+module.exports = ['gram']

@@ -4,8 +4,8 @@ var api = require('../api/time')
 
 var unit = 'second'
 
-require('../definition/time/second')
+var def = require('../definition/time/second')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

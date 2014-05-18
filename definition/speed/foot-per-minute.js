@@ -1,7 +1,9 @@
 'use strict'
 
-var speed = require('./meter-per-second')
+// var speed = require('./meter-per-second')
 
-speed.set('foot-per-minute', 'meter-per-second', 1 / 196.85039)
+// speed.set('foot-per-minute', 'meter-per-second', 1 / 196.85039)
 
-module.exports = speed
+// module.exports = speed
+
+module.exports = ['foot-per-minute', 'meter-per-second', 1 / 196.85039]
