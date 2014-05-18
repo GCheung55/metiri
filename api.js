@@ -7,7 +7,6 @@ var set = require('mout/object/set')
 var get = require('mout/object/get')
 var bind = require('mout/function/bind')
 var isArray = require('mout/lang/isArray')
-var isPlainObject = require('mout/lang/isPlainObject')
 var undef
 
 var implement = function(name) {
