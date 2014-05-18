@@ -1,8 +1,10 @@
 'use strict'
 
-var speed = require('./meter-per-second')
+// var speed = require('./meter-per-second')
 
 // alias: ['nmile/hr'],
-speed.set('sea-mile-per-hour', 'meter-per-second', 1 / 1.9438445)
+// speed.set('sea-mile-per-hour', 'meter-per-second', 1 / 1.9438445)
 
-module.exports = speed
+// module.exports = speed
+
+module.exports = ['sea-mile-per-hour', 'meter-per-second', 1 / 1.9438445]
