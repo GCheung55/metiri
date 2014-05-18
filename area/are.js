@@ -4,8 +4,8 @@ var api = require('../api/area')
 
 var unit = 'are'
 
-require('../definition/area/are')
+var def = require('../definition/area/are')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

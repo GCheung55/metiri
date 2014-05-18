@@ -4,7 +4,7 @@ var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
 var area = require('../area')
-var areaDefinition = require('../definition/_area')
+var areaDefinition = area._definitions
 
 var assert = buster.assert
 var refute = buster.refute

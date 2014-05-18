@@ -1,7 +1,9 @@
 'use strict'
 
-var area = require('./square-meter')
+// var area = require('./square-meter')
 
-area.set('acre', 'square-meter', 1 / 0.00024710538)
+// area.set('acre', 'square-meter', 1 / 0.00024710538)
 
-module.exports = area
+// module.exports = area
+
+module.exports = ['acre', 'square-meter', 1 / 0.00024710538]

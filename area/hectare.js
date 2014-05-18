@@ -4,8 +4,8 @@ var api = require('../api/area')
 
 var unit = 'hectare'
 
-require('../definition/area/hectare')
+var def = require('../definition/area/hectare')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

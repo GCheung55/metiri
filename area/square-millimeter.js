@@ -4,9 +4,9 @@ var api = require('../api/area')
 
 var unit = 'square-millimeter'
 
-require('../definition/area/square-millimeter')
+var def = require('../definition/area/square-millimeter')
 
-api.augment(unit)
+api.augment(unit, def)
 api.augment(unit, 'square.millimeter')
 
 module.exports = api[unit]
