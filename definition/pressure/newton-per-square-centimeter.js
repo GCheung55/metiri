@@ -1,7 +1,9 @@
 'use strict'
 
-var pressure = require('./pascal')
+// var pressure = require('./pascal')
 
-pressure.set('newton-per-square-centimeter', 'pascal', 1 / 1E-4)
+// pressure.set('newton-per-square-centimeter', 'pascal', 1 / 1E-4)
 
-module.exports = pressure
+// module.exports = pressure
+
+module.exports = ['newton-per-square-centimeter', 'pascal', 1 / 1E-4]
