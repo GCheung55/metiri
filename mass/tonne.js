@@ -2,9 +2,9 @@
 
 var api = require('../api/mass')
 
-var unit = 'milligram'
+var unit = 'tonne'
 
-var def = require('../definition/mass/milligram')
+var def = require('../definition/mass/tonne')
 
 api.augment(unit, def)
 
