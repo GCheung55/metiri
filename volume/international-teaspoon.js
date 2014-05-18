@@ -1,11 +1,10 @@
 'use strict'
 
 var api = require('../api/volume')
+var def = require('../definition/volume/international-teaspoon')
 
 var unit = 'international-teaspoon'
 
-var def = require('../definition/volume/international-teaspoon')
-
 api.augment(unit, def)
 
-module.exports = api[unit]
+module.exports = api.get(unit)

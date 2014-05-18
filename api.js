@@ -54,6 +54,10 @@ var recurse = function(obj, scope){
     })
 }
 
+var toDotString = function(str){
+    return str.replace(/-/g, '.')
+}
+
 var api = function(unit, definitions) {
     var methods = {}
     var u = prime({
@@ -79,6 +83,28 @@ var api = function(unit, definitions) {
     // Expose definitions for testing
     u._definitions = definitions
 
+    /**
+     * Set a generic method on the path. Generic method is generated from the definition name.
+     * @param {String} path               Path to set the method, can be dot-notated string to set nested object property
+     * @param {String} definitionName     Name of definition used to generate generic method.
+     */
+    u.set = function(path, definitionName){
+        var scope = this
+
+        set(scope, path, generic(scope, definitionName))
+
+        return scope
+    }
+
+    /**
+     * Get the generic method via path
+     * @param  {String} path   Path to the set method
+     * @return {Function}      Conversion method
+     */
+    u.get = function(path){
+        return get(this, toDotString(path))
+    }
+
     u.augment = function(name, path, def) {
         var scope = this
 
@@ -96,14 +122,14 @@ var api = function(unit, definitions) {
             path = name
         }
 
-        path = path.replace(/-/g, '.')
+        path = toDotString(path)
 
         if (def != undef) {
             definitions.set.apply(definitions, def)
         }
 
         set(methods, path, implement(name))
-        set(scope, path, generic(scope, name))
+        u.set(path, name)
 
         return scope
     }

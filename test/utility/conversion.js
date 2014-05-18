@@ -7,7 +7,7 @@ var floatPointEpsilonEquals = require('./floatPointEpsilonEquals')
 var assert = buster.assert
 
 var replace = function(name){
-    return name.replace(/\-/g, '.')
+    return name.replace(/-/g, '.')
 }
 
 module.exports = function(definitions, start) {
