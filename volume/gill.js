@@ -4,8 +4,8 @@ var api = require('../api/volume')
 
 var unit = 'gill'
 
-require('../definition/volume/gill')
+var def = require('../definition/volume/gill')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

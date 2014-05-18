@@ -4,7 +4,7 @@ var forOwn = require('mout/object/forOwn')
 var conversion = require('./utility/conversion')
 
 var volume = require('../volume')
-var volumeDefinition = require('../definition/_volume')
+var volumeDefinition = volume._definitions
 
 var assert = buster.assert
 var refute = buster.refute

@@ -4,9 +4,9 @@ var api = require('../api/volume')
 
 var unit = 'us-tablespoon'
 
-require('../definition/volume/us-tablespoon')
+var def = require('../definition/volume/us-tablespoon')
 
-api.augment(unit)
+api.augment(unit, def)
 api.augment(unit, unit)
 
 module.exports = api[unit]

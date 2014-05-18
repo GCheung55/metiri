@@ -4,8 +4,8 @@ var api = require('../api/volume')
 
 var unit = 'hectoliter'
 
-require('../definition/volume/hectoliter')
+var def = require('../definition/volume/hectoliter')
 
-api.augment(unit)
+api.augment(unit, def)
 
 module.exports = api[unit]

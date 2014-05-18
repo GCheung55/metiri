@@ -4,9 +4,9 @@ var api = require('../api/volume')
 
 var unit = 'imperial-bushel'
 
-require('../definition/volume/imperial-bushel')
+var def = require('../definition/volume/imperial-bushel')
 
-api.augment(unit)
+api.augment(unit, def)
 api.augment(unit, unit)
 
 module.exports = api[unit]

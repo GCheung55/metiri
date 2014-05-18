@@ -1,7 +1,9 @@
 'use strict'
 
-var volume = require('./cubic-meter')
+// var volume = require('./cubic-meter')
 
-volume.set('us-teaspoon', 'cubic-meter', 1 / 202884.14)
+// volume.set('us-teaspoon', 'cubic-meter', 1 / 202884.14)
 
-module.exports = volume
+// module.exports = volume
+
+module.exports = ['us-teaspoon', 'cubic-meter', 1 / 202884.14]
