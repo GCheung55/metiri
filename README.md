@@ -1,4 +1,4 @@
-metiri [![Build Status](https://travis-ci.org/GCheung55/metiri.png?branch=master)](https://travis-ci.org/GCheung55/metiri)
+metiri [![Build Status](https://travis-ci.org/GCheung55/metiri.png?branch=master)](https://travis-ci.org/GCheung55/metiri) [![Coverage Status](https://img.shields.io/coveralls/GCheung55/metiri.svg)](https://coveralls.io/r/GCheung55/metiri)
 ======
 
 Simple unit conversion utility.
