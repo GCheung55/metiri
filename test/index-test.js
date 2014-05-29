@@ -54,6 +54,12 @@ testCase('index', {
             assert.exception(function(){
                 metiri.augment()
             })
+        },
+
+        'throws on non-existent type': function(){
+            assert.exception(function(){
+                metiri.augment('blah')
+            })
         }
     }
 })

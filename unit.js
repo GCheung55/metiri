@@ -66,7 +66,7 @@ var unit = prime({
         if (len) {
             scope._origVal = value
         } else {
-            scope = scope.origVal
+            scope = scope._origVal
         }
 
         return scope
