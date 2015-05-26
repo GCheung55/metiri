@@ -263,24 +263,27 @@ testCase('unit', {
 
             'converts value to base unit before converting to the requested unit if to/from have the same base': function() {
                 var from = 'milligram'
-                var to = 'kilogram'
+                var to = 'gram'
                 var obj = this.obj
                 var defs = this.defs
+
+                var spy = this.spy(obj, 'compute');
 
                 defs.set.apply(defs, gram)
                 defs.set.apply(defs, kilogram)
                 defs.set.apply(defs, milligram)
 
-                assert.equals(obj.compute(1000, from, to), 0.001)
-                assert.equals(obj.compute(0.001, to, from), 1000)
+                obj.compute(1000, from, to)
+
+                assert.calledWith(spy, 0.001, 'kilogram', 'gram')
             },
 
             'returns false when from/to do not have base to convert from/to': function() {
-                var str = 'gram'
+                var str = 'kilogram'
                 var obj = this.obj
                 var defs = this.defs
 
-                defs.set.apply(defs, gram)
+                defs.set.apply(defs, kilogram)
 
                 assert.isFalse(obj.compute(1, str, str))
             }

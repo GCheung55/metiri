@@ -1,9 +1,3 @@
 'use strict'
 
-// var mass = require('../_mass')
-
-// mass.set('gram')
-
-// module.exports = mass
-
-module.exports = ['gram']
+module.exports = ['gram', 'kilogram', 1/ 1E3]
