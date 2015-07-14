@@ -125,7 +125,7 @@ var unit = prime({
         var outputDef = defs.get(toType)
         var returnValue = false
         var baseType, baseValue, factor, inputZero, outputZero
-        
+
         if (toType === inputDef.base || fromType === outputDef.base) {
             // if ((inputZero = inputDef.zero) != undefined) {
             //     value -= inputZero
@@ -137,7 +137,7 @@ var unit = prime({
                 factor = inputDef.factor
 
                 if (typeof factor === 'function') {
-                    value =  factor(value)
+                    value = factor(value)
                 } else {
                     value *= factor
                 }
