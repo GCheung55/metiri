@@ -1,3 +1,3 @@
 'use strict'
 
-module.exports = ['milligram', 'kilogram', 1 / 1E6]
+module.exports = ['milligram', 'gram', 1 / 1E3]

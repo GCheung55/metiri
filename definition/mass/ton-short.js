@@ -1,3 +1,3 @@
 'use strict'
 
-module.exports = ['ton-short', 'kilogram', 907.18474]
+module.exports = ['ton-short', 'pound', 2000]

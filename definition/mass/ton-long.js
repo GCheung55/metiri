@@ -1,3 +1,3 @@
 'use strict'
 
-module.exports = ['ton-long', 'kilogram', 1016.0469088]
+module.exports = ['ton-long', 'pound', 2240]
