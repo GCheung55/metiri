@@ -123,6 +123,7 @@ var unit = prime({
         var defs = scope.definitions
         var inputDef = defs.get(fromType)
         var outputDef = defs.get(toType)
+        var returnValue = false
         var baseType, baseValue, factor, inputZero, outputZero
 
         if (toType === inputDef.base || fromType === outputDef.base) {
@@ -152,7 +153,7 @@ var unit = prime({
                 value += outputZero
             }
 
-            return value
+            returnValue = value
         } else {
             // We're here b/c neither input nor out type is base type to which we could directly convert
 
@@ -172,11 +173,11 @@ var unit = prime({
                     // toType = outputDef.base
                 }
 
-                return scope.compute(baseValue, fromType, toType)
+                returnValue = scope.compute(baseValue, fromType, toType)
             }
         }
 
-        return false
+        return returnValue
     }
 })
 
