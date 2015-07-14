@@ -125,33 +125,36 @@ var unit = prime({
         var outputDef = defs.get(toType)
         var returnValue = false
         var baseType, baseValue, factor, inputZero, outputZero
-
+        
         if (toType === inputDef.base || fromType === outputDef.base) {
-            if ((inputZero = inputDef.zero) != undefined) {
-                value -= inputZero
-            }
+            // if ((inputZero = inputDef.zero) != undefined) {
+            //     value -= inputZero
+            // }
+
+            value -= inputDef.zero || 0
 
             if (toType === inputDef.base) {
                 factor = inputDef.factor
 
                 if (typeof factor === 'function') {
-                    return factor(value)
+                    value =  factor(value)
+                } else {
+                    value *= factor
                 }
-
-                value *= factor
             } else if (fromType === outputDef.base) {
                 factor = outputDef.factor
 
                 if (typeof factor === 'function') {
-                    return factor(value)
+                    value = factor(value)
+                } else {
+                    value /= factor
                 }
-
-                value /= factor
             } 
 
-            if ((outputZero = outputDef.zero) != undefined) {
-                value += outputZero
-            }
+            // if ((outputZero = outputDef.zero) != undefined) {
+            //     value += outputZero
+            // }
+            value += outputDef.zero || 0
 
             returnValue = value
         } else {
